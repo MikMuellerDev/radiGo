@@ -1,0 +1,20 @@
+#login-form-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-form-div {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 0.3rem;
+    padding: 2rem;
+}
+
+#login-form {
+    /* Align all input fields and buttons to the center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
