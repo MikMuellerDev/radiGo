@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"os/exec"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
@@ -23,6 +25,9 @@ func main() {
 
 	// Dashboard !TODO shows all music
 	r.HandleFunc("/", indexGetHandler).Methods("GET")
+
+	r.HandleFunc("/api/jellyfin", startJellyfin).Methods("GET")
+	r.HandleFunc("/api/off", stopAll).Methods("GET")
 
 	// r.HandleFunc("/", indexPostHandler).Methods("POST")
 	r.HandleFunc("/login", loginGetHandler).Methods("GET")
@@ -104,4 +109,101 @@ func dashGetHandler(w http.ResponseWriter, r *http.Request) {
 	templates.ExecuteTemplate(w, "dash.html", nil)
 	fmt.Println("Username:", username)
 	// w.Write([]byte(username))
+}
+
+func startJellyfin(w http.ResponseWriter, r *http.Request) {
+	channel := make(chan bool)
+	go startJellyfinCommand(channel)
+
+	// If the Goroutine (Jellyfin) does not complete (crash) in 10 seconds after its initialization, it is considered running
+	for i := 0; i < 10; i++ {
+		select {
+		case <-channel:
+			fmt.Println("Error starting Jellyfin")
+			w.Write([]byte("Error starting Jellyfin"))
+			return
+		default:
+			fmt.Println("Jellyfin is running")
+		}
+		time.Sleep(time.Second)
+	}
+	w.Write([]byte("Jellyfin is running"))
+}
+
+func startJellyfinCommand(channel chan bool) {
+	_, err := exec.Command("jellyfin-mpv-shim").Output()
+
+	// if there is an error with our execution, handle it here
+	if err != nil {
+		fmt.Printf("%s", err)
+		channel <- false
+	} else {
+		channel <- true
+	}
+	// output := string(out[:])
+	// fmt.Println(output)
+}
+
+// func killJellyfin(w http.ResponseWriter, r *http.Request) {
+// 	channel := make(chan bool)
+// 	go killJellyfinCommand(channel)
+
+// 	// If the Goroutine (Jellyfin) does not complete (crash) in 10 seconds after its initialization, it is considered running
+
+// 	for i := 0; i < 10; i++ {
+// 		select {
+// 		case <-channel:
+// 			fmt.Println("Jellyfin is stopped")
+// 			w.Write([]byte("Jellyfin is stopped"))
+// 			return
+// 		default:
+// 			fmt.Println("task: stopping Jellyfin is running")
+// 		}
+// 		time.Sleep(time.Second)
+// 	}
+// 	w.Write([]byte("Error stopping jellyfin, it is still running"))
+// }
+
+func killJellyfinCommand(channel chan bool) {
+	_, err := exec.Command("killall", "jellyfin-mpv-shim").Output()
+
+	// if there is an error with our execution, handle it here
+	if err != nil {
+		channel <- false
+	} else {
+		channel <- true
+	}
+}
+
+func waitForChannel(channel *chan bool) bool {
+	// wait 5 secs for channel
+	for i := 0; i < 5; i++ {
+		select {
+		case out := <-*channel:
+			fmt.Println("Channel data received:", out)
+			if out {
+				return true
+			}
+			return false
+		default:
+			fmt.Println("task: receiving data is running")
+		}
+		time.Sleep(time.Second)
+	}
+	return false
+}
+
+func stopAll(w http.ResponseWriter, r *http.Request) {
+	jellyfinChan := make(chan bool)
+
+	go killJellyfinCommand(jellyfinChan)
+	success := waitForChannel(&jellyfinChan)
+
+	fmt.Println(success, "is success of killJellyfin")
+
+	if success {
+		w.Write([]byte("Success"))
+	} else {
+		w.Write([]byte("Failure"))
+	}
 }

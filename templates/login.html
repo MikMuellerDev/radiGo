@@ -2,18 +2,19 @@
 
 <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
-    <link rel="stylesheet" type="text/css" href="/static/elevations.css">
-    <link rel="stylesheet" type="text/css" href="/static/button.css">
-    <link rel="stylesheet" type="text/css" href="/static/input.css">
-    <link rel="stylesheet" type="text/css" href="/static/navbar.css">
-    <link rel="stylesheet" type="text/css" href="/static/login.css">
+    <link rel="icon" type="image/x-icon" href="/static/media/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/elevations.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/button.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/input.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css">
 </head>
 <body>
     <nav>
         <div id="navbar-left">
             <div id="application-name"><h2>RadiGo</h2></div>
-            <div id="application-version"><h3>@0.0.1</h3></div>
+            <div id="application-version"><span id="navbar-application-version">@0.0.1</span></div>
         </div>
     </nav>
     <div id="login-form-body">
@@ -22,12 +23,11 @@
         </div>
         <div id='login-form-div' class="threeDp">
             <form id="login-form" method="POST">
-                <input class="text-input" name="username" id="username-input" placeholder="Username">
-                <input class="text-input" name="password" id="password-input" placeholder="Password">
+                <input class="text-input" name="username" id="username-input"  type="text" placeholder="Username">
+                <input class="text-input" name="password" id="password-input" type="password" placeholder="Password">
                 <button class="button" id="login-button" type="submit">LOGIN</button>
             </form>
         </div>
     </div>
 </body>
-
 </html>
