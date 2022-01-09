@@ -1,8 +1,28 @@
 :root {
-    --clr-purple: #3f51b5
+  --clr-purple: #3f51b5;
+  --clr-purple-hover: #32429c;
+  --clr-text-white: white;
 }
 
 body {
-    background-color: #303030;
-    margin: 0;
+  background-color: #303030;
+  margin: 0;
+}
+
+h1 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  color: var(--clr-text-white);
+}
+
+h2 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  color: var(--clr-text-white);
+}
+
+h3 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  color: var(--clr-text-white);
 }

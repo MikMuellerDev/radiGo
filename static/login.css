@@ -1,20 +1,43 @@
 #login-form-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 22rem;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 #login-form-div {
-    height: 10rem;
-    width: 10rem;
-    border-radius: 0.3rem;
-    padding: 2rem;
+  height: 11rem;
+  width: 12rem;
+  border-radius: 0.3rem;
+  padding: 2rem;
 }
 
 #login-form {
-    /* Align all input fields and buttons to the center */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  /* Align all input fields and buttons to the center */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#username-input {
+  margin-bottom: 2rem;
+}
+
+#login-button {
+  margin-top: 2rem;
+  padding: 8px 22px;
+}
+
+#login-title {
+  text-align: start;
+}
+
+#login-title-div {
+  display: flex;
+  justify-content: start;
+  width: 12rem;
 }

@@ -1,19 +1,29 @@
 .text-input {
-    font: inherit;
-    color: currentColor;
-    width: 100%;
-    border: 0;
-    height: 1.1876em;
-    margin: 0;
-    display: block;
-    padding: 6px 0 7px;
-    min-width: 0;
-    background: none;
-    box-sizing: content-box;
-    animation-name: mui-auto-fill-cancel;
-    letter-spacing: inherit;
-    animation-duration: 10ms;
-    border-bottom: 1px white solid;
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
+  font: inherit;
+  color: white;
+  width: 100%;
+  border: 0;
+  height: 1.1876em;
+  margin: 0;
+  display: block;
+  padding: 6px 0 7px;
+  min-width: 0;
+  background: none;
+  box-sizing: content-box;
+  animation-name: mui-auto-fill-cancel;
+  letter-spacing: inherit;
+  border-bottom: 1px white solid;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  transition: 0.4s;
+}
+
+.text-input:focus {
+  border-bottom: 1px var(--clr-purple) solid;
+}
+
+.text-input::placeholder {
+  color: white;
+  opacity: 0.6;
 }

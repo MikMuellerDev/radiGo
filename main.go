@@ -12,7 +12,7 @@ import (
 var USERNAME string = "mik"
 var PASSWORD string = "mik"
 
-var store = sessions.NewCookieStore([]byte("Replace me 2"))
+var store = sessions.NewCookieStore([]byte("Replace me0 2"))
 var templates *template.Template
 
 func main() {
@@ -36,7 +36,8 @@ func main() {
 
 	http.Handle("/", r)
 
-	http.ListenAndServe(":8080", nil)
+	fmt.Println("♬ RadiGo is running on port 8080")
+	fmt.Println(http.ListenAndServe(":8080", nil))
 }
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {

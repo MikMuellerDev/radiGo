@@ -10,13 +10,21 @@
     <link rel="stylesheet" type="text/css" href="/static/login.css">
 </head>
 <body>
-    <nav></nav>
+    <nav>
+        <div id="navbar-left">
+            <div id="application-name"><h2>RadiGo</h2></div>
+            <div id="application-version"><h3>@0.0.1</h3></div>
+        </div>
+    </nav>
     <div id="login-form-body">
+        <div id="login-title-div">
+            <h1 id="login-title">Login</h1>
+        </div>
         <div id='login-form-div' class="threeDp">
             <form id="login-form" method="POST">
-                <input class="text-input" name="username" placeholder="Username">
-                <input class="text-input" name="password" placeholder="Password">
-                <button class="button" type="submit">LOGIN</button>
+                <input class="text-input" name="username" id="username-input" placeholder="Username">
+                <input class="text-input" name="password" id="password-input" placeholder="Password">
+                <button class="button" id="login-button" type="submit">LOGIN</button>
             </form>
         </div>
     </div>
