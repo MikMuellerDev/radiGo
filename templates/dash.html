@@ -1,53 +1,46 @@
 <html>
-  <head>
-    <title>RadiGo</title>
-    <link rel="icon" type="image/x-icon" href="/static/media/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/main-ui.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/dash.css" />
-  </head>
 
-  <body>
-    <nav>
-      <div id="navbar-left">
-        <div id="application-name">
-          <h2>RadiGo</h2>
-        </div>
-        <div id="application-version">
-          <span id="navbar-application-version">@0.0.1</span>
+<head>
+  <title>RadiGo</title>
+  <link rel="icon" type="image/x-icon" href="/static/media/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/main-ui.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/dash.css" />
+
+  <script src="/static/js/dash.js"></script>
+  <script src="/static/js/play.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div id="navbar-left">
+      <div id="application-name">
+        <h2>RadiGo</h2>
+      </div>
+      <div id="application-version">
+        <span id="navbar-application-version">@0.0.1</span>
+      </div>
+    </div>
+  </nav>
+  <div id="dash-body">
+    <div id="sidebar" class="threeDp"></div>
+    <div id="main-body">
+      <div id="main-body-navbar">
+        <h1>Select Mode</h1>
+        <div id="main-body-navbar-button-div">
+          <button class="button" id="login-button" type="submit">
+            <a href="/logout">logout</a>
+          </button>
+          <button class="button" id="login-button" type="submit">
+            <a href="/logout">logout</a>
+          </button>
         </div>
       </div>
-    </nav>
-    <div id="dash-body">
-      <div id="sidebar" class="threeDp"></div>
-      <div id="main-body">
-        <div id="main-body-navbar">
-          <h1>Select Mode</h1>
-          <div id="main-body-navbar-button-div">
-            <button class="button" id="login-button" type="submit">
-              logout
-            </button>
-            <button class="button" id="login-button" type="submit">
-              logout
-            </button>
-          </div>
-        </div>
-        <div id="mode-selector-div">
-          <div class="mode-item station threeDp">
-            <div class="node-item-left">
-              <div class="node-item-picture"></div>
-              <div class="node-item-labels">
-                <h2>Title</h2>
-                <h3>An interesting subtitle</h3>
-              </div>
-            </div>
-            <div class="node-item-select-indicator"></div>
-          </div>
-        </div>
-        <div class="mode-item station threeDp">
+      <div id="mode-selector-div">
+        <!-- <div class="mode-item station threeDp">
           <div class="node-item-left">
             <div class="node-item-picture"></div>
             <div class="node-item-labels">
@@ -55,9 +48,11 @@
               <h3>An interesting subtitle</h3>
             </div>
           </div>
-          <div class="node-item-select-indicator-activated"></div>
-        </div>
+          <div class="node-item-select-indicator"></div>
+        </div> -->
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

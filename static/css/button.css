@@ -23,3 +23,8 @@
 .button:hover {
   background-color: var(--clr-purple-hover);
 }
+
+.button > a {
+  text-decoration: none;
+  color: white;
+}
