@@ -14,7 +14,7 @@ import (
 var USERNAME string = "mik"
 var PASSWORD string = "mik"
 
-var store = sessions.NewCookieStore([]byte("Replace me0 2"))
+var store = sessions.NewCookieStore([]byte("Replace me0 12"))
 var templates *template.Template
 
 func main() {
@@ -40,8 +40,7 @@ func main() {
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
 
 	http.Handle("/", r)
-
-	fmt.Println("♬ RadiGo is running on port 8080")
+	fmt.Println("♬ RadiGo is running on  http://localhost:8080")
 	fmt.Println(http.ListenAndServe(":8080", nil))
 }
 
