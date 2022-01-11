@@ -102,8 +102,6 @@ func indexGetHandler(w http.ResponseWriter, r *http.Request) {
 // }
 
 func loginGetHandler(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "login.html", http.StatusOK)
-
 	session, _ := sessions.Store.Get(r, "session")
 	value, ok := session.Values["valid"]
 	valid, okParse := value.(bool)
@@ -150,9 +148,7 @@ func loginPostHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func dashGetHandler(w http.ResponseWriter, r *http.Request) {
-	// A user is logged in
 	templates.ExecuteTemplate(w, "dash.html", http.StatusOK)
-	// w.Write([]byte(username))
 }
 
 // func startJellyfin(w http.ResponseWriter, r *http.Request) {

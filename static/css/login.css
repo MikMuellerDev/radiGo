@@ -39,5 +39,6 @@
 #login-title-div {
   display: flex;
   justify-content: start;
-  width: 12rem;
+  width: 15rem;
+  margin-bottom: 1rem;
 }

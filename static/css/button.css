@@ -26,5 +26,14 @@
 
 .button > a {
   text-decoration: none;
+  text-align: center;
   color: white;
+}
+
+@media (max-width: 47.5rem) {
+  .button {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+    min-width: 40px;
+  }
 }
