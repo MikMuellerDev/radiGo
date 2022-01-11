@@ -46,16 +46,28 @@ async function addStations() {
     nodeItemLeft.appendChild(nodeItemLabels);
     nodeItemLabels.appendChild(nodeItemTitle);
     nodeItemLabels.appendChild(nodeItemSubTitle);
+    
 
-    nodeItem.addEventListener("click", function () {
+    setTimeout(function () {
+      nodeItem.style.opacity = "1";
+    }, 50)
+    
+    nodeItem.addEventListener("click", async function () {
       for (let item of ids) {
         setSmall(item);
       }
       nodeItem.style.transform = "scale(1.05)";
       nodeItem.style.filter = "brightness(100%)";
-      nodeItem.style.border = "2px solid var(--clr-purple)";
+      nodeItem.style.border = "3px solid var(--clr-purple)";
 
-      set(station.Id);
+      
+
+      startSpinner("spinner")
+      nodeItem.style.animation = 'setMode 1s linear infinite'
+      const response = await set(station.Id);
+      nodeItem.style.animation = 'none'
+      console.log(response);
+      stopSpinner("spinner")
     });
   }
 }
@@ -64,7 +76,7 @@ function setSmall(id) {
   const item = document.getElementById(id);
   item.style.transform = "scale(1)";
   item.style.filter = "brightness(60%)";
-  item.style.border = "2px solid transparent";
+  item.style.border = "3px solid transparent";
 }
 
 window.onload = function () {

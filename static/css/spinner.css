@@ -1,0 +1,17 @@
+/*Spinner*/
+.spinner {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+    border: 5px solid #0000;
+    border-radius: 50%;
+    border-top: 5px solid var(--clr-purple);
+    opacity: 0;
+    transition: 0.2s opacity;
+}
+
+@keyframes spinnerAnimation {
+    0% { transform: rotate(0deg); }
+    30% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -25,8 +25,8 @@ func NewRouter() *mux.Router {
 	r.HandleFunc("/dash", middleware.AuthRequired(dashGetHandler)).Methods("GET")
 
 	r.HandleFunc("/stations", getStations).Methods("GET")
-	r.HandleFunc("/play/{instruction}", setPlaying).Methods("POST", "GET")
-	r.HandleFunc("/off", middleware.AuthRequired(stopAll)).Methods("POST", "GET")
+	r.HandleFunc("/api/mode/{instruction}", setPlaying).Methods("POST", "GET")
+	// r.HandleFunc("/api/off", middleware.AuthRequired(stopAll)).Methods("POST", "GET")
 
 	// r.HandleFunc("/api/jellyfin", middleware.AuthRequired(startJellyfin)).Methods("GET")
 
@@ -50,44 +50,59 @@ func getStations(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(utils.GetStations())
 }
 
-func stopAll(w http.ResponseWriter, r *http.Request) {
-	success := audio.StopAll(5)
-	if success {
-		w.Write([]byte("Success"))
-	} else {
-		w.Write([]byte("Failure"))
-	}
-}
+// func stopAll(w http.ResponseWriter, r *http.Request) {
+// 	w.Header().Set("Content-Type", "application/json")
+// 	success := audio.StopAll(5)
+// 	if success {
+// 		json.NewEncoder(w).Encode(ResponseStruct{Success: true, Title: "success", Message: "All (music) processes were killed successfully."})
+// 	} else {
+// 		json.NewEncoder(w).Encode(ResponseStruct{Success: false, ErrorCode: 1, Title: "failure", Message: "An error occurred during the attempt to stop all (music) processes."})
+// 	}
+// }
 
 func setPlaying(w http.ResponseWriter, r *http.Request) {
 	// If the Goroutine (Jellyfin) does not complete (crash) in 5 seconds after its initialization, it is considered running
 	vars := mux.Vars(r)
 	instruction := vars["instruction"]
+	modePrevious := audio.GetPlaying()
 	channel := make(chan bool)
 	var success bool
-	fmt.Println(instruction)
+	fmt.Println("order: ", instruction, "current: ", audio.GetPlaying())
 	if instruction == audio.GetPlaying() {
-		w.Write([]byte("Nothing changed"))
+		json.NewEncoder(w).Encode(ResponseStruct{Success: false, ErrorCode: 2, Title: "unchanged", Message: "The specified operational mode is already active."})
 		return
+	}
+	if instruction == "off" {
+		audio.SetPlaying("off")
+		success = audio.StopAll(5)
 	}
 	if instruction == "jellyfin" {
 		audio.SetPlaying(instruction)
-		fmt.Println("JELL")
-		audio.StopAll(3)
+		// If nothing plays, then don't attempt to kill something
+		if audio.GetPlaying() != "off" {
+			audio.StopAll(3)
+		}
 		go audio.StartService("jellyfin-mpv-shim", "", channel)
 		success = audio.WaitForChannel(&channel, 5)
-	} else if instruction == "off" {
-		audio.SetPlaying(instruction)
-		audio.StopAll(5)
 	} else if utils.DoesStationExist(instruction) {
 		audio.SetPlaying(instruction)
-		audio.StopAll(4)
+		// If nothing plays, then don't attempt to kill something
+		if audio.GetPlaying() != "off" {
+			audio.StopAll(3)
+		}
 		go audio.StartService("mpv", utils.GetStationById(instruction).Url, channel)
 		success = audio.WaitForChannel(&channel, 5)
 	} else {
-		w.Write([]byte("Unknown station or service :::  "))
+		json.NewEncoder(w).Encode(ResponseStruct{Success: false, ErrorCode: 4, Title: "unknown mode", Message: "The specified operational mode is not valid."})
 	}
-	w.Write([]byte(fmt.Sprintf("Success: %t", success)))
+	if success {
+		json.NewEncoder(w).Encode(ResponseStruct{Success: true, ErrorCode: 0, Title: "success", Message: fmt.Sprintf("Operational mode was changed to: %s", audio.GetPlaying())})
+	} else {
+		if instruction != "off" {
+			audio.SetPlaying(modePrevious)
+		}
+		json.NewEncoder(w).Encode(ResponseStruct{Success: false, ErrorCode: 1, Title: "error occurred", Message: fmt.Sprintf("Something went wrong whilst trying to set mode to %s.", instruction)})
+	}
 }
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {

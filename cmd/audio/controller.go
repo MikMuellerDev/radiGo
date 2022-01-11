@@ -15,7 +15,7 @@ func StopAll(timeout int) bool {
 	successJellyfin := WaitForChannel(&jellyfinChan, timeout)
 
 	go killProcess("mpv", mpvChan)
-	successMpv := WaitForChannel(&jellyfinChan, timeout)
+	successMpv := WaitForChannel(&mpvChan, timeout)
 
 	fmt.Println(successJellyfin, "is success of killJellyfin")
 	fmt.Println(successMpv, "is success of Kill MPV")

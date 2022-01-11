@@ -1,50 +1,51 @@
 <html>
-  <head>
-    <title>RadiGo</title>
 
-    <meta charset="UTF-8" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<head>
+  <title>RadiGo</title>
 
-    <link rel="icon" type="image/x-icon" href="/static/media/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/main-ui.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/dash.css" />
+  <meta charset="UTF-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <script src="/static/js/dash.js"></script>
-    <script src="/static/js/play.js"></script>
-  </head>
+  <link rel="icon" type="image/x-icon" href="/static/media/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/main-ui.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/dash.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/spinner.css" />
 
-  <body>
-    <nav>
-      <div id="navbar-left">
-        <div id="application-name">
-          <h2>RadiGo</h2>
-        </div>
-        <div id="application-version">
-          <span id="navbar-application-version">@0.0.1</span>
+  <script src="/static/js/dash.js"></script>
+  <script src="/static/js/play.js"></script>
+  <script src="/static/js/spinner.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div id="navbar-left">
+      <div id="application-name">
+        <h2>RadiGo</h2>
+      </div>
+      <div id="application-version">
+        <span id="navbar-application-version">@0.0.1</span>
+      </div>
+    </div>
+  </nav>
+  <div id="dash-body">
+    <div id="sidebar" class="threeDp"></div>
+    <div id="main-body">
+      <div id="main-body-navbar">
+        <h1>Select Mode</h1>
+        <div class="spinner" id="spinner"></div>
+        <div id="main-body-navbar-button-div">
+          <button class="button" id="login-button" type="submit">
+            <a href="/logout">logout</a>
+          </button>
         </div>
       </div>
-    </nav>
-    <div id="dash-body">
-      <div id="sidebar" class="threeDp"></div>
-      <div id="main-body">
-        <div id="main-body-navbar">
-          <h1>Select Mode</h1>
-          <div id="main-body-navbar-button-div">
-            <button class="button" id="login-button" type="submit">
-              <a href="/logout">logout</a>
-            </button>
-            <button class="button" id="login-button" type="submit">
-              <a href="/logout">logout</a>
-            </button>
-          </div>
-        </div>
-        <div id="mode-selector-div">
-          <!-- <div class="mode-item station threeDp">
+      <div id="mode-selector-div">
+        <!-- <div class="mode-item station threeDp">
           <div class="node-item-left">
             <div class="node-item-picture"></div>
             <div class="node-item-labels">
@@ -54,8 +55,9 @@
           </div>
           <div class="node-item-select-indicator"></div>
         </div> -->
-        </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

@@ -22,7 +22,8 @@ func WaitForChannel(channel *chan bool, timeout int) bool {
 }
 
 func killProcess(process string, channel chan bool) {
-	_, err := exec.Command("killall", process).Output()
+	out, err := exec.Command("killall", process).Output()
+	fmt.Println(string(out))
 	if err != nil {
 		channel <- false
 	} else {

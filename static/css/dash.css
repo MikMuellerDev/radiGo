@@ -1,5 +1,4 @@
 #dash-body {
-  height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -7,6 +6,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   overflow: hidden;
+  height: calc(100% - 64px);
 }
 
 #main-body {
@@ -30,7 +30,8 @@
   align-content: center;
   padding: 1rem;
   transition: 0.4s;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
+  opacity: 0;
 }
 
 .node-item-left {
@@ -51,6 +52,8 @@
   background-color: #505050;
   width: 4.5rem;
   height: 4.5rem;
+  background-position: center;
+  background-size: cover;
 }
 
 .node-item-labels {
@@ -131,5 +134,17 @@
 
   nav {
     height: 40px;
+  }
+}
+
+@keyframes setMode {
+  0% {
+    border: 3px solid var(--clr-purple);
+  }
+  50% {
+    border: 3px solid transparent;
+  }
+  100% {
+    border: 3px solid var(--clr-purple);
   }
 }
