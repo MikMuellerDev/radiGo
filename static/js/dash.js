@@ -1,44 +1,31 @@
-const getStationUrl = "/stations";
+var operationLock = false;
+var currentMode;
 
-async function fetchStations() {
-  const res = await fetch(getStationUrl);
-  const stations = await res.json();
-  return stations["Stations"];
-}
-
-function getIds(stations) {
-  let ids = [];
-  for (let station of stations) {
-    ids.push(station.Id);
-  }
-  return ids;
-}
-
-async function addStations() {
-  const stations = await fetchStations();
-  const ids = getIds(stations);
-  for (let station of stations) {
-    console.log(station);
+async function addStations(modes) {
+  const ids = getIds(modes);
+  for (let mode of modes) {
+    // console.log(mode);
     const parentDiv = document.getElementById("mode-selector-div");
 
     const nodeItem = document.createElement("div");
     nodeItem.className = "mode-item station threeDp";
-    nodeItem.id = station.Id;
+    nodeItem.id = mode.Id;
 
     const nodeItemLeft = document.createElement("div");
     nodeItemLeft.className = "node-item-left";
 
     const nodeItemLeftPicture = document.createElement("div");
     nodeItemLeftPicture.className = "node-item-picture";
-    nodeItemLeftPicture.style.backgroundImage = `url(${station.ImagePath})`;
+    nodeItemLeftPicture.id = `${mode.Id}-picture`;
+    nodeItemLeftPicture.style.backgroundImage = `url(${mode.ImagePath})`;
 
     const nodeItemLabels = document.createElement("div");
     nodeItemLabels.className = "node-item-labels";
 
     const nodeItemTitle = document.createElement("h2");
-    nodeItemTitle.innerText = station.Name;
+    nodeItemTitle.innerText = mode.Name;
     const nodeItemSubTitle = document.createElement("h3");
-    nodeItemSubTitle.innerText = station.Description;
+    nodeItemSubTitle.innerText = mode.Description;
 
     parentDiv.appendChild(nodeItem);
     nodeItem.appendChild(nodeItemLeft);
@@ -46,50 +33,77 @@ async function addStations() {
     nodeItemLeft.appendChild(nodeItemLabels);
     nodeItemLabels.appendChild(nodeItemTitle);
     nodeItemLabels.appendChild(nodeItemSubTitle);
-    
+
+    // <div class="spinner" id="spinner"></div>
+    const spinner = document.createElement("div");
+    spinner.className = "spinner";
+    spinner.id = `${mode.Id}-spinner`;
+
+    nodeItem.appendChild(spinner);
 
     setTimeout(function () {
       nodeItem.style.opacity = "1";
-    }, 50)
-    
+    }, 50);
+
     nodeItem.addEventListener("click", async function () {
-      for (let item of ids) {
-        setSmall(item);
-      }
-      nodeItem.style.transform = "scale(1.05)";
-      nodeItem.style.filter = "brightness(100%)";
-      nodeItem.style.border = "3px solid var(--clr-purple)";
+      if (operationLock) return;
+      modeBefore = currentMode;
+      operationLock = true;
 
-      
+      for (let item of ids) setSmall(item);
 
-      startSpinner("spinner")
-      nodeItem.style.animation = 'setMode 1s linear infinite'
-      const response = await set(station.Id);
-      nodeItem.style.animation = 'none'
+      startSpinner(`${mode.Id}-spinner`);
+      applyActiveCss(nodeItem, nodeItemLeftPicture);
+
+      const response = await setCurrentMode(mode.Id);
+      await stopSpinner(`${mode.Id}-spinner`);
       console.log(response);
-      stopSpinner("spinner")
+      if (response.Success) {
+        nodeItem.style.boxShadow = "0 0 0 3px var(--clr-success)";
+        setTimeout(function () {
+          nodeItem.style.boxShadow = "0 0 0 3px var(--clr-purple)";
+          nodeItem.style.transform = "scale(1.05)";
+          operationLock = false;
+        }, 1000);
+      } else {
+        nodeItem.style.boxShadow = "0 0 0 3px var(--clr-error)";
+        setTimeout(function () {
+          nodeItem.style.boxShadow = "none";
+          operationLock = false;
+          for (let item of ids) setSmall(item);
+          const node = document.getElementById(modeBefore);
+          const ItemLeftPicture = document.getElementById(
+            `${modeBefore}-picture`
+          );
+          applyActiveCss(node, ItemLeftPicture);
+          node.style.transform = "scale(1.05)";
+        }, 1000);
+      }
     });
   }
+}
+
+function applyActiveCss(node, picture) {
+  picture.style.filter = "grayscale(0)";
+  node.style.filter = "brightness(100%)";
+  node.style.boxShadow = "0 0 0 3px var(--clr-purple)";
 }
 
 function setSmall(id) {
   const item = document.getElementById(id);
   item.style.transform = "scale(1)";
   item.style.filter = "brightness(60%)";
-  item.style.border = "3px solid transparent";
+  item.style.boxShadow = "none";
+
+  const picture = document.getElementById(`${id}-picture`);
+  picture.style.filter = "grayscale(30%)";
 }
 
-window.onload = function () {
-  addStations().then();
+window.onload = async function () {
+  const modes = await getAvailableModes();
+  currentMode = await getCurrentMode();
+  await addStations(modes);
+  setTimeout(function () {
+    setCurrentModeGui(currentMode, modes);
+  }, 100);
 };
-
-// <div class="mode-item station threeDp">
-//           <div class="node-item-left">
-//             <div class="node-item-picture"></div>
-//             <div class="node-item-labels">
-//               <h2>Title</h2>
-//               <h3>An interesting subtitle</h3>
-//             </div>
-//           </div>
-//           <div class="node-item-select-indicator"></div>
-//         </div>

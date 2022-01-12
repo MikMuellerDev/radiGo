@@ -11,13 +11,13 @@
   <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
-  <link rel="stylesheet" type="text/css" href="/static/css/main-ui.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/dash.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/spinner.css" />
 
+  <script src="/static/js/utils.js"></script>
+  <script src="/static/js/api.js"></script>
   <script src="/static/js/dash.js"></script>
-  <script src="/static/js/play.js"></script>
   <script src="/static/js/spinner.js"></script>
 </head>
 
@@ -28,16 +28,14 @@
         <h2>RadiGo</h2>
       </div>
       <div id="application-version">
-        <span id="navbar-application-version">@0.0.1</span>
+        <span id="navbar-application-version">@0.9.0</span>
       </div>
     </div>
   </nav>
   <div id="dash-body">
-    <div id="sidebar" class="threeDp"></div>
     <div id="main-body">
       <div id="main-body-navbar">
         <h1>Select Mode</h1>
-        <div class="spinner" id="spinner"></div>
         <div id="main-body-navbar-button-div">
           <button class="button" id="login-button" type="submit">
             <a href="/logout">logout</a>

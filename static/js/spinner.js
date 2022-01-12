@@ -1,8 +1,8 @@
 function startSpinner(spinnerId) {
     const spinner = document.getElementById(spinnerId)
     if (spinner.style.opacity !== '100%')
-        if (spinner.style.animation !== 'spinnerAnimation 1s linear infinite')
-            spinner.style.animation = 'spinnerAnimation 1s linear infinite'
+        if (spinner.style.animation !== 'spinnerAnimation 0.9s linear infinite')
+            spinner.style.animation = 'spinnerAnimation 0.9s linear infinite'
     spinner.style.opacity = '100%'
 }
 

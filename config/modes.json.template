@@ -1,0 +1,36 @@
+{
+    "modes": [
+        {
+            "name": "A Radio Station",
+            "id": "0",
+            "description": "This is a radio station you should listen to.",
+            "imagePath": "/static/media/stations/0.jpg",
+            "url": "https://example.com/stream/mp3",
+            "volume": 100
+        },
+        {
+            "name": "Another Radio Station",
+            "id": "1",
+            "description": "This is a radio station you should also listen to.",
+            "imagePath": "/static/media/stations/1.jpg",
+            "url": "https://gopherradio.com/stream/mp3",
+            "volume": 100
+        },
+        {
+            "name": "Jellyfin",
+            "id": "jellyfin",
+            "description": "You must have `jellyfin-mpv-shim` installed",
+            "imagePath": "/static/media/icons/jellyfin.png",
+            "url": "",
+            "volume": 100
+        },
+        {
+            "name": "Off",
+            "id": "off",
+            "description": "silence.",
+            "imagePath": "/static/media/icons/off.png",
+            "url": "",
+            "volume": 100
+        }
+    ]
+}

@@ -6,8 +6,9 @@ import (
 )
 
 var playingNow string = "off"
+var operationLock bool
 
-func StopAll(timeout int) bool {
+func StopAll(timeout int) {
 	jellyfinChan := make(chan bool)
 	mpvChan := make(chan bool)
 
@@ -17,14 +18,15 @@ func StopAll(timeout int) bool {
 	go killProcess("mpv", mpvChan)
 	successMpv := WaitForChannel(&mpvChan, timeout)
 
-	fmt.Println(successJellyfin, "is success of killJellyfin")
-	fmt.Println(successMpv, "is success of Kill MPV")
+	if !successJellyfin || !successMpv {
+		fmt.Println(successJellyfin, "is success of killJellyfin")
+		fmt.Println(successMpv, "is success of Kill MPV")
+	}
 
-	return successJellyfin || successMpv
 }
 
-func StartService(command string, arg string, channel chan bool) {
-	_, err := exec.Command(command, arg).Output()
+func StartService(command string, args []string, channel chan bool) {
+	_, err := exec.Command(command, args...).Output()
 
 	// if there is an error with our execution, handle it here
 	if err != nil {
@@ -37,10 +39,18 @@ func StartService(command string, arg string, channel chan bool) {
 	// fmt.Println(output)
 }
 
-func SetPlaying(mode string) {
+func SetMode(mode string) {
 	playingNow = mode
 }
 
-func GetPlaying() string {
+func GetMode() string {
 	return playingNow
+}
+
+func SetOperationLock(mode bool) {
+	operationLock = mode
+}
+
+func GetOperationLock() bool {
+	return operationLock
 }

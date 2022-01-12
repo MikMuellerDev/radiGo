@@ -13,3 +13,7 @@
 
 
 stations.json
+config.json
+.vscode
+ignore
+makefile

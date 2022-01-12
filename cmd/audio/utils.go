@@ -10,11 +10,10 @@ func WaitForChannel(channel *chan bool, timeout int) bool {
 	// wait 5 secs for an error to occur
 	for i := 0; i < timeout; i++ {
 		select {
-		case out := <-*channel:
-			fmt.Println("Channel data received:", out)
+		case <-*channel:
 			return false
 		default:
-			fmt.Println("task: receiving data is running")
+			fmt.Print("")
 		}
 		time.Sleep(time.Second)
 	}
@@ -30,3 +29,5 @@ func killProcess(process string, channel chan bool) {
 		channel <- true
 	}
 }
+
+// TODO make INIT function for logger, will be implemented in MAIN

@@ -6,3 +6,7 @@ type ResponseStruct struct {
 	Title     string
 	Message   string
 }
+
+type StatusStruct struct {
+	Mode string
+}
