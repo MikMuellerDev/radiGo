@@ -15,6 +15,6 @@ func main() {
 	utils.InitStations()
 	templates.LoadTemplates("../templates/*.html")
 	http.Handle("/", r)
-	log.Info("♬ RadiGo is running on  http://localhost:8080")
+	log.Info("♬ RadiGo is running on  http://localhost:8081")
 	fmt.Println(http.ListenAndServe(":8081", nil))
 }
