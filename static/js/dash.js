@@ -99,11 +99,18 @@ function setSmall(id) {
   picture.style.filter = "grayscale(30%)";
 }
 
-window.onload = async function () {
-  const modes = await getAvailableModes();
+async function mainloop(modes) {
   currentMode = await getCurrentMode();
-  await addStations(modes);
   setTimeout(function () {
     setCurrentModeGui(currentMode, modes);
   }, 100);
+  setTimeout(function () {
+    mainloop(modes).then()
+  }, 10000)
+}
+
+window.onload = async function () {
+  const modes = await getAvailableModes();
+  await addStations(modes);
+  mainloop(modes).then()
 };

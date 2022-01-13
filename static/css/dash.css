@@ -61,10 +61,15 @@
   align-content: flex-start;
   justify-content: flex-start;
   align-items: flex-start;
+  max-width: 70%;
 }
 
 .node-item-labels > * {
   margin: 0;
+}
+
+.node-item > .spinner {
+  margin-left: -1rem;
 }
 
 #mode-selector-div {
