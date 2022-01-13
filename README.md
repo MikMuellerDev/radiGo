@@ -2,7 +2,7 @@
 
 ## Version 1.0.0
 
-![go report card](https://img.shields.io/badge/go%20report-A+-brightgreen.svg?style=flat)  
+![go report card](https://goreportcard.com/badge/github.com/MikMuellerDev/radiGo)  
 Headless internet radio for linux
 
 ## Introduction
