@@ -81,8 +81,12 @@
   width: 50rem;
 }
 
-#mode-selector-div > * {
+#mode-selector-div > .mode-item  {
   margin-bottom: 1.7rem;
+}
+
+#mode-selector-div > :last-child {
+  margin-bottom: 0;
 }
 
 #main-body-navbar {
