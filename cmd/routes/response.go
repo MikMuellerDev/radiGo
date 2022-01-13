@@ -10,3 +10,8 @@ type ResponseStruct struct {
 type StatusStruct struct {
 	Mode string
 }
+
+type VersionStruct struct {
+	Version    string
+	Production bool
+}

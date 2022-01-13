@@ -100,7 +100,7 @@ function setSmall(id) {
 }
 
 async function mainloop(modes) {
-  currentMode = await getCurrentMode();
+  currentMode = await getCurrentMode(true);
   setTimeout(function () {
     setCurrentModeGui(currentMode, modes);
   }, 100);
@@ -110,7 +110,10 @@ async function mainloop(modes) {
 }
 
 window.onload = async function () {
+  currentMode = await getCurrentMode(false);
   const modes = await getAvailableModes();
+  const version = await getVersion();
+  setVersion(version.Version, version.Production)
   await addStations(modes);
   mainloop(modes).then()
 };

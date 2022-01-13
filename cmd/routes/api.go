@@ -23,6 +23,13 @@ func getMode(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(StatusStruct{Mode: audio.GetMode()})
 }
 
+// Returns the mode which is currently active
+func getVersion(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	version, production := utils.GetVersion()
+	json.NewEncoder(w).Encode(VersionStruct{Version: version, Production: production})
+}
+
 func setMode(w http.ResponseWriter, r *http.Request) {
 	// If there is a start / stop operation, return an error to prevent inconsistency between shown and actual behavior
 	if audio.GetOperationLock() {

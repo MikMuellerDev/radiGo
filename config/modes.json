@@ -1,54 +1,54 @@
 {
     "modes": [
         {
+            "id": "2",
             "type": "radio-station",
             "name": "Sunshine Live",
-            "id": "2",
             "description": "Jetzt gibt's was auf die Ohren, so wie der Olli es will.",
             "imagePath": "/static/media/stations/ignore/2.jpg",
             "url": "https://sunshinelive.hoerradar.de/sunshinelive-live-mp3-hq?sABC=61po3on1#0#2324n31n6005q854292oo45149303o9n#ubzrcntr&mode=preroll&aw_0_1st.skey=1640709044&cb=579101041&amsparams=playerid:homepage;skey:1640709025",
             "volume": 100
         },
         {
+            "id": "1",
             "type": "radio-station",
             "name": "Sunshine Live Melodic Techno",
-            "id": "1",
             "description": "Jemand hat hier den falschen Sender angemacht.",
             "imagePath": "/static/media/stations/ignore/1.jpg",
             "url": "https://sunsl.streamabc.net/sunsl-melodictechno-mp3-192-4167248?sABC=61o5rrnp%230%232n97q280268772p52p03osn832218115%23ubzrcntr&mode=preroll&aw_0_1st.skey=1639311208&cb=595675563&amsparams=playerid:homepage;skey:1639313068",
             "volume": 130
         },
         {
+            "id": "3",
             "type": "radio-station",
             "name": "Sunshine Live Trance",
-            "id": "3",
             "description": "Laut Olli schon besser als das da oben.",
             "imagePath": "/static/media/stations/ignore/3.jpg",
             "url": "https://sunshinelive.hoerradar.de/sunshinelive-trance-mp3-hq?sABC=61qqor05#0#0s4q5p2r1q97n14p2o272sp81357363p#ubzrcntr&mode=preroll&aw_0_1st.skey=1641922096&cb=634772155&amsparams=playerid:homepage;skey:1641922053",
             "volume": 100
         },
         {
+            "id": "4",
             "type": "radio-station",
             "name": "Energy Hit Music Only",
-            "id": "4",
             "description": "Müll Radio mit schlechter Musik.",
             "imagePath": "/static/media/stations/ignore/4.png",
             "url": "http://edge04.streamonkey.net/energy-digital/stream/mp3?aggregator=Shorty",
             "volume": 100
         },
         {
+            "id": "5",
             "type": "radio-station",
             "name": "1 Live Radio",
-            "id": "5",
             "description": "Müll Radio mit schlechter Musik 2.",
             "imagePath": "/static/media/stations/ignore/5.png",
             "url": "https://d111.rndfnk.com/ard/wdr/1live/live/mp3/128/stream.mp3?sid=23cKI2JK0Rb64jLN1wBPf7OAqMM&token=xUVZuH33R26Me0bBlCrHKWNCFoIWafSlhItCcRMbdik&tvf=RdGLqUa7yRZkMTExLnJuZGZuay5jb20",
             "volume": 130
         },
         {
+            "id": "jellyfin",
             "type": "service",
             "name": "Jellyfin",
-            "id": "jellyfin",
             "description": "Verwendung als ferngesteuerter Audio-Player, volle Kontrolle.",
             "imagePath": "/static/media/icons/jellyfin.png",
             "url": "",

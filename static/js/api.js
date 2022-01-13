@@ -16,8 +16,11 @@ async function getAvailableModes() {
   return (await res.json())["Modes"];
 }
 
-async function getCurrentMode() {
-  const url = "/api/mode";
+async function getCurrentMode(useKeepalive) {
+  let url = "/api/mode";
+  if (useKeepalive) {
+    url = "/api/mode/keepalive";
+  }
   const res = await fetch(url);
   return (await res.json())["Mode"];
 }

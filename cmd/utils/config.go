@@ -2,11 +2,13 @@ package utils
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
-	"log"
 )
 
 type Config struct {
+	Version      string
+	Production   bool
 	Port         int
 	Users        []User
 	InstanceName string
@@ -20,7 +22,8 @@ type User struct {
 var config Config
 
 func ReadConfigFile() {
-	content, err := ioutil.ReadFile("../config/config.json")
+	path := "../config/config.json"
+	content, err := ioutil.ReadFile(path)
 	if err != nil {
 		log.Fatal("Error when opening file: ", err)
 	}
@@ -28,8 +31,13 @@ func ReadConfigFile() {
 	if err != nil {
 		log.Fatal("Error during Unmarshal(): ", err)
 	}
+	log.Debug(fmt.Sprintf("Loaded radiGo config File from %s", path))
 }
 
 func GetConfig() *Config {
 	return &config
+}
+
+func GetVersion() (string, bool) {
+	return config.Version, config.Production
 }

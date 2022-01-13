@@ -2,8 +2,8 @@ package utils
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
-	"log"
 )
 
 type Mode struct {
@@ -22,7 +22,8 @@ type Modes struct {
 var stations Modes
 
 func ReadModesFile() {
-	content, err := ioutil.ReadFile("../config/modes.json")
+	path := "../config/modes.json"
+	content, err := ioutil.ReadFile(path)
 	if err != nil {
 		log.Fatal("Error when opening file: ", err)
 	}
@@ -30,6 +31,7 @@ func ReadModesFile() {
 	if err != nil {
 		log.Fatal("Error during Unmarshal(): ", err)
 	}
+	log.Debug(fmt.Sprintf("Loaded radiGo modes and stations from %s", path))
 }
 
 func GetModes() Modes {
@@ -42,6 +44,7 @@ func DoesStationExist(id string) bool {
 			return true
 		}
 	}
+	log.Trace(fmt.Sprintf("Requested mode that does not exist %s", id))
 	return false
 }
 
@@ -51,5 +54,6 @@ func GetStationById(id string) Mode {
 			return v
 		}
 	}
+	log.Error(fmt.Sprintf("Requested station that does not exist: %s, DoesStationExist() might have failed.", id))
 	return Mode{}
 }

@@ -19,28 +19,30 @@ func StopAll(timeout int) {
 	successMpv := WaitForChannel(&mpvChan, timeout)
 
 	if !successJellyfin || !successMpv {
-		fmt.Println(successJellyfin, "is success of killJellyfin")
-		fmt.Println(successMpv, "is success of Kill MPV")
+		log.Trace(fmt.Sprintf("Kill jellyfin successful:%t", successJellyfin))
+		log.Trace(fmt.Sprintf("Kill MPV successful:%t", successMpv))
 	}
 
 }
 
 func StartService(command string, args []string, channel chan bool) {
-	_, err := exec.Command(command, args...).Output()
+	out, err := exec.Command(command, args...).Output()
 
 	// if there is an error with our execution, handle it here
 	if err != nil {
-		fmt.Printf("%s", err)
+		if GetMode() != "off" && !GetOperationLock() {
+			log.Error(fmt.Sprintf("Error of command: %s with args: %s \n	%s", command, args, err))
+		}
 		channel <- false
 	} else {
 		channel <- true
 	}
-	// output := string(out[:])
-	// fmt.Println(output)
+	log.Trace(fmt.Sprintf("Output of command: %s with args: %s \n	%s", command, args, string(out[:])))
 }
 
 func SetMode(mode string) {
 	playingNow = mode
+	log.Debug(fmt.Sprintf("Set current mode to:%s", mode))
 }
 
 func GetMode() string {
@@ -49,6 +51,7 @@ func GetMode() string {
 
 func SetOperationLock(mode bool) {
 	operationLock = mode
+	log.Trace(fmt.Sprintf("OperationLock is set to:%t", mode))
 }
 
 func GetOperationLock() bool {
