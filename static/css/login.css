@@ -32,10 +32,6 @@
   padding: 8px 22px;
 }
 
-#login-title {
-  text-align: start;
-}
-
 #login-title-div {
   display: flex;
   justify-content: start;

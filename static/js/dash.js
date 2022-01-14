@@ -4,7 +4,6 @@ var currentMode;
 async function addStations(modes) {
   const ids = getIds(modes);
   for (let mode of modes) {
-    // console.log(mode);
     const parentDiv = document.getElementById("mode-selector-div");
 
     const nodeItem = document.createElement("div");
@@ -34,7 +33,6 @@ async function addStations(modes) {
     nodeItemLabels.appendChild(nodeItemTitle);
     nodeItemLabels.appendChild(nodeItemSubTitle);
 
-    // <div class="spinner" id="spinner"></div>
     const spinner = document.createElement("div");
     spinner.className = "spinner";
     spinner.id = `${mode.Id}-spinner`;

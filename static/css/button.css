@@ -1,7 +1,6 @@
 /* Normal Buttons */
 .button {
   background-color: var(--clr-purple);
-  color: #fff;
   border: none;
   padding: 6px 16px;
   font-size: 0.875rem;
