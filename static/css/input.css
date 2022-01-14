@@ -1,10 +1,10 @@
 .text-input {
   color: white;
   width: 100%;
+  font-size: 1rem;
   border: 0;
   height: 1.1876em;
   margin: 0;
-  /* display: block; */
   padding: 6px 0 7px;
   background: none;
   box-sizing: content-box;
