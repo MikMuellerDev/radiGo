@@ -1,0 +1,16 @@
+{
+    "version": "1.1.0",
+    "production": false,
+    "port": 8081,
+    "instanceName": "LOCALHOST",
+    "users": [
+        {
+            "name": "admin",
+            "password": "admin"
+        },
+        {
+            "name": "user",
+            "password": "passw0rd"
+        }
+    ]
+}
