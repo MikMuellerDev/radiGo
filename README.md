@@ -89,7 +89,7 @@ If your server is a modern PC less than 10 years old your architecture is most l
 `radiGo-1.0.0_linux_amd64.tar.gz`.
 
 On a Raspberry Pi it is most likely `radiGo-1.0.0_linux_arm.tar.gz`, make sure the `linux_arm` part matches.
-Download the [file](https://github.com/MikMuellerDev/radiGo/releases/download/v1.0.0/radiGo-1.0.0_linux_arm.tar.gz) and save it in a directory of your choosing.
+Download the [file](https://github.com/MikMuellerDev/radiGo/releases/download/v1.1.0/radiGo-1.0.0_linux_arm.tar.gz) and save it in a directory of your choosing.
 Unpack the tar archive using
 
 ```
