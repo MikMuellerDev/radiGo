@@ -1,11 +1,11 @@
 {
     "background_color": "black",
     "theme_color": "blue",
-    "orientation": "portrait",
+    "orientation": "portrait-primary",
     "lang": "en-US",
-    "categories": ["utilities", "multimedia"],
-    "description": "Headless radio control via webinterface, written in Go .",
-    "display": "fullscreen",
+    "categories": ["multimedia"],
+    "description": "Headless radio control via a webinterface, written in Go .",
+    "display": "standalone",
     "icons": [
       {
         "src": "/static/media/product/icon.png",
@@ -15,5 +15,5 @@
     ],
     "name": "RadiGo Webinterface",
     "short_name": "RadiGo",
-    "start_url": "/"
+    "start_url": "/dash"
 }
