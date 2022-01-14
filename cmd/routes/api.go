@@ -25,8 +25,8 @@ func getMode(w http.ResponseWriter, r *http.Request) {
 
 // Returns the mode which is currently active
 func getVersion(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	version, production := utils.GetVersion()
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(VersionStruct{Version: version, Production: production})
 }
 
@@ -38,7 +38,7 @@ func setMode(w http.ResponseWriter, r *http.Request) {
 	}
 	audio.SetOperationLock(true)
 
-	var success bool
+	success := false
 	vars := mux.Vars(r)
 	channel := make(chan bool)
 	modePrevious := audio.GetMode()

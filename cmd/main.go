@@ -21,7 +21,10 @@ func main() {
 	sessions.InitLogger(log)
 	templates.InitLogger(log)
 	utils.InitLogger(log)
-	log.Debug("All loggers initialized.")
+	log.Debug("Loggers initialized.")
+
+	// Deactivate everything
+	go audio.StopAll(5)
 
 	config := utils.GetConfig()
 	r := routes.NewRouter()

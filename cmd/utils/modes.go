@@ -25,11 +25,11 @@ func ReadModesFile() {
 	path := "../config/modes.json"
 	content, err := ioutil.ReadFile(path)
 	if err != nil {
-		log.Fatal("Error when opening file: ", err)
+		log.Fatal("Could not open modes file: ", err)
 	}
 	err = json.Unmarshal(content, &stations)
 	if err != nil {
-		log.Fatal("Error during Unmarshal(): ", err)
+		log.Fatal("Could not parse modes file: ", err)
 	}
 	log.Debug(fmt.Sprintf("Loaded radiGo modes and stations from %s", path))
 }
@@ -44,7 +44,7 @@ func DoesStationExist(id string) bool {
 			return true
 		}
 	}
-	log.Trace(fmt.Sprintf("Requested mode that does not exist %s", id))
+	log.Trace(fmt.Sprintf("Requested mode that does not exist: %s", id))
 	return false
 }
 

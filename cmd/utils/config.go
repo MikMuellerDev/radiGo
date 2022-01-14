@@ -7,16 +7,16 @@ import (
 )
 
 type Config struct {
-	Version      string
-	Production   bool
-	Port         int
-	Users        []User
 	InstanceName string
+	Production   bool
+	Version      string
+	Users        []User
+	Port         int
 }
 
 type User struct {
-	Name     string
 	Password string
+	Name     string
 }
 
 var config Config
@@ -25,11 +25,11 @@ func ReadConfigFile() {
 	path := "../config/config.json"
 	content, err := ioutil.ReadFile(path)
 	if err != nil {
-		log.Fatal("Error when opening file: ", err)
+		log.Fatal("Could not open config file: ", err)
 	}
 	err = json.Unmarshal(content, &config)
 	if err != nil {
-		log.Fatal("Error during Unmarshal(): ", err)
+		log.Fatal("Could not parse config file: ", err)
 	}
 	log.Debug(fmt.Sprintf("Loaded radiGo config File from %s", path))
 }

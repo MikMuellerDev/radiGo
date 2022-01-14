@@ -20,6 +20,6 @@ func TestCredentials(user string, password string) bool {
 			return true
 		}
 	}
-	log.Debug(fmt.Sprintf("Login failed for User %s with Password: %s", user, password))
+	log.Debug(fmt.Sprintf("Login failed for User %s.", user))
 	return false
 }

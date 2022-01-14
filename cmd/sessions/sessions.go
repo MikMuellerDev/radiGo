@@ -38,7 +38,7 @@ func Init(useRandomSeed bool) {
 		// By using a static sting like "", no login is required when restarting the server
 		// The session encryption key is static, cookies stay valid
 		// If a logout is forced during development, turn on production mode
-		log.Warn("\x1b[33mUsing a static string for session encryption. This is a security risk and should not be used in production.")
+		log.Warn("\x1b[33mRadiGo is using a static string for session encryption. This is a security risk and should not be used in production.")
 		Store = sessions.NewCookieStore([]byte(""))
 	}
 }
