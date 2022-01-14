@@ -30,7 +30,7 @@ func StartService(command string, args []string, channel chan bool) {
 
 	// if there is an error with our execution, handle it here
 	if err != nil {
-		if GetMode() != "off" && !GetOperationLock() {
+		if (GetMode() != "off" || GetMode() != "jellyfin") && !GetOperationLock() {
 			log.Error(fmt.Sprintf("Error of command: %s with args: %s \n	%s", command, args, err))
 		}
 		channel <- false

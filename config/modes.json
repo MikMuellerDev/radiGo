@@ -3,9 +3,9 @@
         {
             "name": "A Radio Station",
             "id": "0",
-            "description": "This is a test audio file hosted on Github.",
+            "description": "This is a test audio file.",
             "imagePath": "/static/media/stations/0.png",
-            "url": "https://example.com/stream/mp3",
+            "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
             "volume": 100
         },
         {
@@ -22,7 +22,7 @@
             "description": "Kills all MPV streams and deactivates the Jellyfin stream client.",
             "imagePath": "/static/media/icons/off.png",
             "url": "",
-            "volume": 100
+            "volume": 0
         }
     ]
 }

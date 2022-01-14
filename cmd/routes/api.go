@@ -66,7 +66,7 @@ func setMode(w http.ResponseWriter, r *http.Request) {
 		go audio.StartService("jellyfin-mpv-shim", args, channel)
 		success = audio.WaitForChannel(&channel, 5)
 	case utils.DoesStationExist(instruction):
-		args := append(make([]string, 0), utils.GetStationById(instruction).Url, fmt.Sprintf("--volume=%d", utils.GetStationById(instruction).Volume))
+		args := append(make([]string, 0), utils.GetStationById(instruction).Url, fmt.Sprintf("--volume=%d", utils.GetStationById(instruction).Volume), "--no-video")
 		audio.SetMode(instruction)
 		// If nothing plays, then don't attempt to kill something
 		if audio.GetMode() != "off" {
