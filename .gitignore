@@ -14,3 +14,4 @@ build
 log
 *.log
 log/application.log
+bin

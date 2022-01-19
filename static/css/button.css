@@ -29,6 +29,10 @@
   color: white;
 }
 
+.button {
+  color: white;
+}
+
 @media (max-width: 47.5rem) {
   .button {
     padding: 4px 6px;
