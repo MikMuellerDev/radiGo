@@ -1,7 +1,5 @@
 # RadiGo
 
-## Version 1.0.0
-
 ![go report card](https://goreportcard.com/badge/github.com/MikMuellerDev/radiGo)  
 Headless internet radio for linux
 
