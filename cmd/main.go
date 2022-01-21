@@ -27,6 +27,7 @@ func main() {
 	go audio.StopAll(5)
 
 	config := utils.GetConfig()
+	config.Version = "1.1.2"
 	r := routes.NewRouter()
 	utils.ReadModesFile()
 	utils.ReadConfigFile()
@@ -35,6 +36,6 @@ func main() {
 	sessions.Init(config.Production)
 	templates.LoadTemplates("../templates/*.html")
 	http.Handle("/", r)
-	log.Info(fmt.Sprintf("\x1b[34mRadiGo [%s] is running on http://localhost:%d", config.InstanceName, config.Port))
+	log.Info(fmt.Sprintf("\x1b[34mRadiGo @%s [%s] is running on http://localhost:%d", config.Version, config.InstanceName, config.Port))
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
 }
