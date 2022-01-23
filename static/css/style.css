@@ -11,34 +11,10 @@ body {
   margin: 0;
 }
 
-h1 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  color: var(--clr-text-white);
-  margin: 0;
-}
-
-h2 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  color: var(--clr-text-white);
-  margin: 0;
-}
-
-h3 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  color: var(--clr-text-white);
-  margin: 0;
-}
-
-h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  color: var(--clr-text-white);
-  margin: 0;
-}
-
+h1,
+h2,
+h3,
+h4,
 span {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;

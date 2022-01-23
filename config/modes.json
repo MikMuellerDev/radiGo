@@ -3,9 +3,17 @@
         {
             "name": "A Radio Station",
             "id": "0",
-            "description": "This is a test audio file.",
+            "description": "This is a test Youtube `Station`.",
             "imagePath": "/static/media/stations/0.png",
             "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "volume": 100
+        },
+        {
+            "name": "A music file",
+            "id": "1",
+            "description": "This was made my Rubixdev [github.com/RubixDev]",
+            "imagePath": "/static/media/stations/0.png",
+            "url": "../static/media/music/demo.wav",
             "volume": 100
         },
         {
