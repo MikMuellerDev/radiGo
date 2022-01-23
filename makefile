@@ -1,12 +1,10 @@
-appname := radiGo-1.1.3
+appname := radiGo-1.1.4
 radiGoDir := radiGo
 
 sources := $(wildcard *.go)
 
 build =  cd ./cmd && GOOS=$(1) GOARCH=$(2) go build -o ../bin/$(appname)$(3)
-# tar = cd ./build && tar -cvzf $(1)_$(2).tar.gz $(appname)$(3) && rm $(appname)$(3)
 tar =  mkdir -p build && cd ../ && tar -cvzf ./$(appname)_$(1)_$(2).tar.gz $(radiGoDir)/bin $(radiGoDir)/config $(radiGoDir)/static $(radiGoDir)/templates && mv $(appname)_$(1)_$(2).tar.gz $(radiGoDir)/build
-# tar = tar -cvzf ./$(appname)_$(1)_$(2).tar.gz *
 
 .PHONY: all linux
 

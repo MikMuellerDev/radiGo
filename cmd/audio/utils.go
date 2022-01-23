@@ -15,7 +15,7 @@ func InitLogger(logger *logrus.Logger) {
 }
 
 func WaitForChannel(channel *chan bool, timeout int) bool {
-	// wait 5 secs for an error to occur
+	// wait 5 secs for a potential error to occur
 	for i := 0; i < timeout; i++ {
 		select {
 		case <-*channel:

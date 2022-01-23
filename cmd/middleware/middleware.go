@@ -19,9 +19,8 @@ func AuthRequired(handler http.HandlerFunc) http.HandlerFunc {
 		session, _ := sessions.Store.Get(r, "session")
 		value, ok := session.Values["valid"]
 		valid, okParse := value.(bool)
-		// TODO impl checker for api requests that use url params auth instead of session
+
 		if ok && okParse && valid {
-			log.Trace(fmt.Sprintf("Valid Session, serving %s", r.URL.Path))
 			handler.ServeHTTP(w, r)
 			return
 		}

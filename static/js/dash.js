@@ -111,7 +111,7 @@ window.onload = async function () {
   currentMode = await getCurrentMode(false);
   const modes = await getAvailableModes();
   const version = await getVersion();
-  setVersion(version.Version, version.Production)
   await addStations(modes);
+  setVersion(version.Version, version.Production)
   mainloop(modes).then()
 };

@@ -8,8 +8,8 @@
             "password": "admin"
         },
         {
-            "name": "user",
-            "password": "passw0rd"
+            "name": "testuser",
+            "password": "password"
         }
     ]
 }
