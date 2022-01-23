@@ -80,18 +80,18 @@ of RadiGo.
 
 https://github.com/MikMuellerDev/radiGo/releases
 
-Depending on your host, your file should look something like `radiGo-1.0.0_linux_arm.tar.gz` this.
+Depending on your host, your file should look something like `radiGo-1.1.4_linux_arm.tar.gz` this.
 
 If your server is a modern PC less than 10 years old your architecture is most likely
 
-`radiGo-1.0.0_linux_amd64.tar.gz`.
+`radiGo-1.1.4_linux_amd64.tar.gz`.
 
-On a Raspberry Pi it is most likely `radiGo-1.0.0_linux_arm.tar.gz`, make sure the `linux_arm` part matches.
-Download the [file](https://github.com/MikMuellerDev/radiGo/releases/download/v1.1.0/radiGo-1.0.0_linux_arm.tar.gz) and save it in a directory of your choosing.
+On a Raspberry Pi it is most likely `radiGo-1.1.4_linux_arm.tar.gz`, make sure the `linux_arm` part matches.
+Download the [file](https://github.com/MikMuellerDev/radiGo/releases/download/v1.1.4/radiGo-1.1.4_linux_arm.tar.gz) and save it in a directory of your choosing.
 Unpack the tar archive using
 
 ```
-tar xvf radiGo-1.0.0_linux_arm.tar.gz
+tar xvf radiGo-1.1.4_linux_arm.tar.gz
 ```
 
 Make sure to replace your filename accordingly.
@@ -99,7 +99,7 @@ Make sure to replace your filename accordingly.
 ### Run
 
 Once downloaded and unpacked, navigate to the extracted directory and then in the `bin` directory.  
-Then run the file like follows `./radiGo-1.0.0_linux_arm.tar.gz`.
+Then run the file like follows `./radiGo-1.1.4_linux_arm.tar.gz`.
 If everything worked flawlessly, you will see output in the console.
 
 Now you can navigate to your instance `http://192.168.178.XXX:8081/`
