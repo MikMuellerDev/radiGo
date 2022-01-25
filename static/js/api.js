@@ -1,6 +1,10 @@
 async function setCurrentMode(id) {
-  const res = await fetch(`/api/mode/${id}`, { method: "post" });
-  return await res.json();
+  try {
+    const res = await fetch(`/api/mode/${id}`, { method: "post" });
+    return await res.json();
+  } catch {
+    return { Success: false, ErrorCode: -1, Title: "", Message: "" };
+  }
 }
 
 async function getAvailableModes() {
