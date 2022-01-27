@@ -1,4 +1,4 @@
-async function setCurrentMode(id) {
+async function setCurrentMode(id: string) {
   try {
     const res = await fetch(`/api/mode/${id}`, { method: "post" });
     return await res.json();
@@ -13,7 +13,7 @@ async function getAvailableModes() {
   return (await res.json())["Modes"];
 }
 
-async function getCurrentMode(useKeepalive) {
+async function getCurrentMode(useKeepalive: boolean) {
   let url = "/api/mode";
   if (useKeepalive) url = "/api/mode/keepalive";
   const res = await fetch(url);

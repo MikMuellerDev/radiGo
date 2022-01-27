@@ -1,8 +1,12 @@
 {
-    "cSpell.words": [
-        "lfshook",
-        "logrus",
-        "radi",
-        "tmpl"
-    ]
+  "cSpell.words": [
+    "cleanall",
+    "darkreader",
+    "lfshook",
+    "logrus",
+    "mainloop",
+    "radi",
+    "radigo",
+    "tmpl"
+  ]
 }

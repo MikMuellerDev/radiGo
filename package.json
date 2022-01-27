@@ -1,0 +1,24 @@
+{
+  "name": "radigo",
+  "version": "1.2.0",
+  "description": "Headless internet radio for linux",
+  "main": "nan",
+  "scripts": {
+    "build": "make build",
+    "compile": "make",
+    "clean": "make cleanall"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikMuellerDev/radiGo.git"
+  },
+  "keywords": [
+    "radio"
+  ],
+  "author": "MikMuellerDev",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/MikMuellerDev/radiGo/issues"
+  },
+  "homepage": "https://github.com/MikMuellerDev/radiGo#readme"
+}

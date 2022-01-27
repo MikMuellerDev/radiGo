@@ -1,11 +1,13 @@
-function setVersion(version, production) {
-  const versionIndicator = document.getElementById(
+function setVersion(version: string, production: boolean) {
+  const versionIndicator: HTMLSpanElement = document.getElementById(
     "navbar-application-version"
-  );
+  ) as HTMLSpanElement;
   versionIndicator.innerText = `@${version}`;
   if (!production) {
     versionIndicator.style.color = "rgb(255 175 175)";
-    const productionIndicator = document.getElementById("navbar-application-production");
+    const productionIndicator: HTMLSpanElement = document.getElementById(
+      "navbar-application-production"
+    ) as HTMLSpanElement;
     productionIndicator.innerText = "Development Server";
     productionIndicator.style.marginLeft = "1rem";
     productionIndicator.style.color = "rgb(255 175 175)";

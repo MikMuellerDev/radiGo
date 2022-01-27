@@ -15,3 +15,5 @@ log
 *.log
 log/application.log
 bin
+
+./static/js/out

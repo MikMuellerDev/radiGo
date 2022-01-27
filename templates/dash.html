@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>RadiGo</title>
+    <meta charset="UTF-8" />
+    <meta name="darkreader" content="off" />
+    <link rel="manifest" href="/static/manifest.webmanifest" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/media/product/favicon.png"
+    />
 
-<head>
-  <title>RadiGo</title>
-  <meta charset="UTF-8" />
-  <link rel="manifest" href="/static/manifest.webmanifest">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <link rel="icon" type="image/x-icon" href="/static/media/product/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/dash.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/spinner.css" />
 
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
-  <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
-  <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
-  <link rel="stylesheet" type="text/css" href="/static/css/dash.css" />
-  <link rel="stylesheet" type="text/css" href="/static/css/spinner.css" />
+    <!-- <script src="/static/js/utils.js"></script>
+    <script src="/static/js/version.js"></script> -->
+    <!-- <script src="/static/js/api.js"></script> -->
+    <!-- <script src="/static/js/static/blockdarkreader.js"></script>
+    <script src="/static/js/dash.js"></script>
+    <script src="/static/js/spinner.js"></script> -->
 
-  <script src="/static/js/utils.js"></script>
-  <script src="/static/js/version.js"></script>
-  <script src="/static/js/api.js"></script>
-  <script src="/static/js/dash.js"></script>
-  <script src="/static/js/spinner.js"></script>
-</head>
+    <script src="/static/js/out/utils.js"></script>
+    <script src="/static/js/out/version.js"></script>
+    <script src="/static/js/out/api.js"></script>
+    <script src="/static/js/static/blockdarkreader.js"></script>
+    <script src="/static/js/out/dash.js"></script>
+    <script src="/static/js/out/spinner.js"></script>
+  </head>
 
-<body>
-  <nav id="navbar">
-    <div id="navbar-left">
-      <div id="application-name">
-        <h2>RadiGo</h2>
-      </div>
-      <div id="application-version">
-        <span id="navbar-application-version">@0.0.0</span>
-        <span id="navbar-application-production"></span>
-      </div>
-    </div>
-  </nav>
-  <div id="dash-body">
-    <div id="main-body">
-      <div id="main-body-navbar">
-        <h1>Select Mode</h1>
-        <div id="main-body-navbar-button-div">
-          <button class="button" id="login-button" type="submit">
-            <a href="/logout">logout</a>
-          </button>
+  <body>
+    <nav id="navbar">
+      <div id="navbar-left">
+        <div id="application-name">
+          <h2>RadiGo</h2>
+        </div>
+        <div id="application-version">
+          <span id="navbar-application-version">@0.0.0</span>
+          <span id="navbar-application-production"></span>
         </div>
       </div>
-      <div id="mode-selector-div"></div>
+    </nav>
+    <div id="dash-body">
+      <div id="main-body">
+        <div id="main-body-navbar">
+          <h1>Select Mode</h1>
+          <div id="main-body-navbar-button-div">
+            <button class="button" id="login-button" type="submit">
+              <a href="/logout">logout</a>
+            </button>
+          </div>
+        </div>
+        <div id="mode-selector-div"></div>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
