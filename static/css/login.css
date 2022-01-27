@@ -1,9 +1,13 @@
-#login-form-body {
+#login-form-body,
+#login-form {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 22rem;
   flex-direction: column;
+}
+
+#login-form-body {
+  justify-content: center;
+  height: 22rem;
 }
 
 #login-form-div {
@@ -11,12 +15,6 @@
   width: 12rem;
   border-radius: 0.3rem;
   padding: 2rem;
-}
-
-#login-form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 
 #username-input {

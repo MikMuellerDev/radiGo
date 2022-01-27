@@ -23,13 +23,14 @@
   background-color: var(--clr-purple-hover);
 }
 
+.button,
 .button > a {
-  text-decoration: none;
-  text-align: center;
   color: white;
 }
 
-.button {
+.button > a {
+  text-decoration: none;
+  text-align: center;
   color: white;
 }
 

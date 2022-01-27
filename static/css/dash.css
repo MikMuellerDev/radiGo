@@ -1,13 +1,15 @@
-#dash-body {
+#dash-body,
+#main-body {
   display: flex;
   flex-direction: column;
+}
+
+#dash-body {
   flex-wrap: wrap;
   height: calc(100% - 64px);
 }
 
 #main-body {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -56,7 +58,6 @@
 }
 
 #mode-selector-div {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 50rem;
@@ -70,15 +71,19 @@
   margin-bottom: 0;
 }
 
-#main-body-navbar {
+#main-body-navbar,
+#main-body-navbar-button-div,
+#mode-selector-div {
   display: flex;
+}
+
+#main-body-navbar {
   justify-content: space-between;
   width: 50%;
   margin: 1.5rem 0;
 }
 
 #main-body-navbar-button-div {
-  display: flex;
   flex-direction: row;
   gap: 0.5rem;
   justify-content: space-evenly;
