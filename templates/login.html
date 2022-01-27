@@ -1,65 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RadiGo Login</title>
-    <meta charset="UTF-8" />
-    <meta name="darkreader" content="off" />
-    <link rel="manifest" href="/static/manifest.webmanifest" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/static/media/product/favicon.png"
-    />
 
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/input.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/login.css" />
+<head>
+  <title>RadiGo Login</title>
+  <meta charset="UTF-8" />
+  <meta name="darkreader" content="off" />
+  <link rel="manifest" href="/static/manifest.webmanifest" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="icon" type="image/x-icon" href="/static/media/product/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/input.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/login.css" />
 
-    <script src="/static/js/static/blockdarkreader.js"></script>
-    <script src="/static/js/out/version.js"></script>
-    <script src="/static/js/out/login.js"></script>
-  </head>
+  <script src="/static/js/out/blockDarkReader.js"></script>
+  <script src="/static/js/out/version.js"></script>
+  <script src="/static/js/out/login.js"></script>
+</head>
 
-  <body>
-    <nav id="navbar">
-      <div id="navbar-left">
-        <div id="application-name">
-          <h2>RadiGo</h2>
-        </div>
-        <div id="application-version">
-          <span id="navbar-application-version">@0.0.0</span>
-          <span id="navbar-application-production"></span>
-        </div>
+<body>
+  <nav id="navbar">
+    <div id="navbar-left">
+      <div id="application-name">
+        <h2>RadiGo</h2>
       </div>
-    </nav>
-    <div id="login-form-body">
-      <div id="login-title-div">
-        <h1 id="login-title">Login</h1>
-      </div>
-      <div id="login-form-div" class="threeDp">
-        <form id="login-form" method="POST">
-          <input
-            class="text-input"
-            name="username"
-            id="username-input"
-            type="text"
-            placeholder="Username"
-          />
-          <input
-            class="text-input"
-            name="password"
-            id="password-input"
-            type="password"
-            placeholder="Password"
-          />
-          <button class="button" id="login-button" type="submit">LOGIN</button>
-        </form>
+      <div id="application-version">
+        <span id="navbar-application-version">@0.0.0</span>
+        <span id="navbar-application-production"></span>
       </div>
     </div>
-  </body>
+  </nav>
+  <div id="login-form-body">
+    <div id="login-title-div">
+      <h1 id="login-title">Login</h1>
+    </div>
+    <div id="login-form-div" class="threeDp">
+      <form id="login-form" method="POST">
+        <input class="text-input" name="username" id="username-input" type="text" placeholder="Username" />
+        <input class="text-input" name="password" id="password-input" type="password" placeholder="Password" />
+        <button class="button" id="login-button" type="submit">LOGIN</button>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>

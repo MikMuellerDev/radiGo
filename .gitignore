@@ -16,4 +16,5 @@ log
 log/application.log
 bin
 
+node_modules
 ./static/js/out
