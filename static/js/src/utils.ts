@@ -1,4 +1,4 @@
-type Mode = {
+interface Mode {
   Name: string;
   Description: string;
   ImagePath: string;
@@ -16,7 +16,7 @@ type Mode = {
 //   "Volume": 100
 // },
 
-function getIds(modes: [key: Mode]) {
+function getIds(modes: Mode[]) {
   let ids = [];
   for (let mode of modes) {
     ids.push(mode.Id);
@@ -24,7 +24,7 @@ function getIds(modes: [key: Mode]) {
   return ids;
 }
 
-function setCurrentModeGui(modeId: string, modes: [key: Mode]) {
+function setCurrentModeGui(modeId: string, modes: Mode[]) {
   const ids = getIds(modes);
   for (let item of ids) {
     setSmall(`${item}`);

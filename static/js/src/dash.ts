@@ -105,7 +105,7 @@ function setSmall(id: string) {
   picture.style.filter = "grayscale(30%)";
 }
 
-async function mainloop(modes: [key: Mode]) {
+async function mainloop(modes: Mode[]) {
   currentMode = await getCurrentMode(true);
   setTimeout(function () {
     setCurrentModeGui(currentMode, modes);
