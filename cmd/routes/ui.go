@@ -52,3 +52,7 @@ func loginPostHandler(w http.ResponseWriter, r *http.Request) {
 func dashGetHandler(w http.ResponseWriter, r *http.Request) {
 	templates.ExecuteTemplate(w, "dash.html", http.StatusOK)
 }
+
+func notFoundHandler(w http.ResponseWriter, r *http.Request) {
+	templates.ExecuteTemplate(w, "404.html", http.StatusNotFound)
+}

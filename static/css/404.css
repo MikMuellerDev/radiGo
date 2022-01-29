@@ -1,0 +1,43 @@
+#main-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#main-body-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  align-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#main-body-navbar-button-div {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-evenly;
+}
+
+#Big404 {
+  font-size: 7rem;
+}
+
+@media (max-width: 47.5rem) {
+  #main-body-navbar {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+  }
+
+  #main-body {
+    width: 100%;
+  }
+
+  nav {
+    height: 40px;
+  }
+}

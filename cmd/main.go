@@ -27,7 +27,7 @@ func main() {
 	go audio.StopAll(5)
 
 	config := utils.GetConfig()
-	config.Version = "1.2.1"
+	config.Version = "1.2.2"
 	r := routes.NewRouter()
 	utils.ReadModesFile()
 	utils.ReadConfigFile()

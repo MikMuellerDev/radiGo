@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RadiGo (404)</title>
+  <meta name="description" content="Headless internet radio for linux">
+  <meta charset="UTF-8" />
+  <meta name="darkreader" content="off" />
+  <link rel="manifest" href="/static/manifest.webmanifest" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="icon" type="image/x-icon" href="/static/media/product/icon.png" />
+
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/404.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/navbar.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/elevations.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
+
+  <script defer src="/static/js/out/blockDarkReader.js"></script>
+  <script defer src="/static/js/out/version.js"></script>
+  <script defer src="/static/js/out/404.js"></script>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div id="navbar-left">
+      <div id="application-name">
+        <h2 id="navbar-application-name">RadiGo</h2>
+      </div>
+      <div id="application-version">
+        <span id="navbar-application-version"></span>
+        <span id="navbar-application-production"></span>
+      </div>
+    </div>
+  </nav>
+  <div id="dash-body">
+    <div id="main-body">
+      <div id="main-body-navbar">
+        <h1 id="title">Not found</h1>
+        <div class="spinner" id="edit-spinner"></div>
+        <div id="main-body-navbar-button-div">
+          <button class="button" id="login-button" type="submit" onclick="window.location.href='/dash'">
+            <a href="/dash">HOME</a>
+          </button>
+        </div>
+      </div>
+      <h1 id="Big404">404</h1>
+      <h3>You Requested a page, which does not exist</h3>
+      <br />
+    </div>
+  </div>
+</body>
+
+</html>
