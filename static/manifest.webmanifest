@@ -1,7 +1,7 @@
 {
     "background_color": "black",
     "theme_color": "blue",
-    "orientation": "portrait-primary",
+    "orientation": "any",
     "lang": "en-US",
     "categories": ["multimedia"],
     "description": "Headless radio control via a webinterface, written in Go .",
