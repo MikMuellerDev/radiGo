@@ -25,9 +25,9 @@ func getMode(w http.ResponseWriter, r *http.Request) {
 
 // Returns the mode which is currently active
 func getVersion(w http.ResponseWriter, r *http.Request) {
-	version, production := utils.GetVersion()
+	version, instanceName, production := utils.GetVersion()
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(VersionStruct{Version: version, Production: production})
+	json.NewEncoder(w).Encode(VersionStruct{Version: version, Name: instanceName, Production: production})
 }
 
 func setMode(w http.ResponseWriter, r *http.Request) {

@@ -38,6 +38,6 @@ func GetConfig() *Config {
 	return &config
 }
 
-func GetVersion() (string, bool) {
-	return config.Version, config.Production
+func GetVersion() (string, string, bool) {
+	return config.Version, config.InstanceName, config.Production
 }

@@ -20,7 +20,20 @@ func AuthRequired(handler http.HandlerFunc) http.HandlerFunc {
 		value, ok := session.Values["valid"]
 		valid, okParse := value.(bool)
 
+		query := r.URL.Query()
+		username := query.Get("username")
+		password := query.Get("password")
+
 		if ok && okParse && valid {
+			handler.ServeHTTP(w, r)
+			return
+		} else if TestCredentials(username, password) {
+
+			// Saves session
+			session, _ := sessions.Store.Get(r, "session")
+			session.Values["valid"] = true
+			session.Values["username"] = username
+			session.Save(r, w)
 			handler.ServeHTTP(w, r)
 			return
 		}

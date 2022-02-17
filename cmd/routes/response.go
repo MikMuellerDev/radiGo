@@ -13,5 +13,6 @@ type StatusStruct struct {
 
 type VersionStruct struct {
 	Version    string
+	Name       string
 	Production bool
 }

@@ -23,7 +23,7 @@ func NewRouter() *mux.Router {
 	r.HandleFunc("/", middleware.LogRequest(indexGetHandler)).Methods("GET")
 	r.HandleFunc("/dash", middleware.AuthRequired(dashGetHandler)).Methods("GET")
 
-	r.HandleFunc("/api/mode/{instruction}", middleware.AuthRequired(middleware.LogRequest(setMode))).Methods("POST")
+	r.HandleFunc("/api/mode/{instruction}", middleware.LogRequest(middleware.AuthRequired(setMode))).Methods("POST")
 	r.HandleFunc("/api/mode/list", middleware.LogRequest(getAllModes)).Methods("GET")
 	r.HandleFunc("/api/mode", middleware.LogRequest(getMode)).Methods("GET")
 	r.HandleFunc("/api/mode/keepalive", getMode).Methods("GET")

@@ -120,6 +120,6 @@ window.onload = async function () {
   const modes = await getAvailableModes();
   const version = await getVersion();
   await addStations(modes);
-  setVersion(version.Version, version.Production);
+  setVersion(version.Version, version.Name, version.Production);
   mainloop(modes).then();
 };
