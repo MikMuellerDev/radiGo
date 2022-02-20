@@ -7,15 +7,6 @@ interface Mode {
   Volume: number;
 };
 
-// {
-//   "Name": "A Radio Station",
-//   "Description": "This is a test Youtube `Station`.",
-//   "ImagePath": "/static/media/stations/0.png",
-//   "Url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-//   "Id": "0",
-//   "Volume": 100
-// },
-
 function getIds(modes: Mode[]) {
   let ids = [];
   for (let mode of modes) {
