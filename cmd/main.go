@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/MikMuellerDev/radiGo/audio"
 	"github.com/MikMuellerDev/radiGo/middleware"
@@ -10,6 +11,7 @@ import (
 	"github.com/MikMuellerDev/radiGo/sessions"
 	"github.com/MikMuellerDev/radiGo/templates"
 	utils "github.com/MikMuellerDev/radiGo/utils"
+	"github.com/go-co-op/gocron"
 )
 
 func main() {
@@ -26,8 +28,14 @@ func main() {
 	// Deactivate everything
 	go audio.StopAll(5)
 
+	// Setup Scheduler to run every 6 hours
+	scheduler := gocron.NewScheduler(time.Local)
+	scheduler.Every(6).Hours().Do(audio.Reload)
+	// scheduler.Every(1).Minutes().Do(audio.Reload)
+	scheduler.StartAsync()
+
 	config := utils.GetConfig()
-	config.Version = "1.2.5"
+	config.Version = "1.3.0"
 	r := routes.NewRouter()
 	utils.ReadModesFile()
 	utils.ReadConfigFile()

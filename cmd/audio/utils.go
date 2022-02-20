@@ -5,6 +5,7 @@ import (
 	"os/exec"
 	"time"
 
+	"github.com/MikMuellerDev/radiGo/utils"
 	"github.com/sirupsen/logrus"
 )
 
@@ -39,4 +40,37 @@ func killProcess(process string, channel chan bool) {
 	}
 }
 
-// TODO make INIT function for logger, will be implemented in MAIN
+func Reload() {
+	if GetMode() != "off" {
+		log.Debug("Reloading current mode...")
+		previousMode := playingNow
+		for GetOperationLock() {
+			time.Sleep(1 * time.Second)
+		}
+		SetOperationLock(true)
+		SetMode("off")
+		StopAll(5)
+		channel := make(chan bool)
+		if GetMode() == "jellyfin" {
+			args := make([]string, 0)
+			go StartService("jellyfin-mpv-shim", args, channel)
+			success := WaitForChannel(&channel, 5)
+			if success {
+				log.Info("Reloading current mode succeeded.")
+			} else {
+				log.Error("Reloading current mode failed.")
+			}
+		} else {
+			args := append(make([]string, 0), utils.GetStationById(previousMode).Url, fmt.Sprintf("--volume=%d", utils.GetStationById(previousMode).Volume), "--no-video")
+			go StartService("mpv", args, channel)
+			success := WaitForChannel(&channel, 3)
+			if success {
+				log.Info("Reloading current mode succeeded.")
+			} else {
+				log.Error("Reloading current mode failed.")
+			}
+		}
+		SetMode(previousMode)
+		SetOperationLock(false)
+	}
+}
