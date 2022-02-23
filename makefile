@@ -1,4 +1,4 @@
-appname := radiGo-1.3.0
+appname := radiGo-1.3.1
 radiGoDir := radiGo
 
 sources := $(wildcard *.go)

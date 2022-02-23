@@ -40,6 +40,26 @@ func StartService(command string, args []string, channel chan bool) {
 	log.Trace(fmt.Sprintf("Output of command: %s with args: %s \n	%s", command, args, string(out[:])))
 }
 
+func Beep() bool {
+	// Can return success
+	filepath := "../static/media/music/beep.mp3"
+	args := make([]string, 0)
+	args = append(args, filepath)
+	channel := make(chan bool)
+	StartService("mpv", args, channel)
+	return WaitForChannel(&channel, 1)
+}
+
+func StartupTone() bool {
+	// Can return success
+	filepath := "../static/media/music/startup.mp3"
+	args := make([]string, 0)
+	args = append(args, filepath)
+	channel := make(chan bool)
+	StartService("mpv", args, channel)
+	return WaitForChannel(&channel, 1)
+}
+
 func SetMode(mode string) {
 	playingNow = mode
 	log.Debug(fmt.Sprintf("Set current mode to:%s", mode))

@@ -52,10 +52,13 @@ func setMode(w http.ResponseWriter, r *http.Request) {
 
 	switch {
 	case instruction == "off":
+		go audio.Beep()
 		audio.SetMode("off")
 		audio.StopAll(4)
+		go audio.Beep()
 		success = true
 	case instruction == "jellyfin":
+		go audio.Beep()
 		args := make([]string, 0)
 		audio.SetMode(instruction)
 		// If nothing plays, then don't attempt to kill something
@@ -65,7 +68,9 @@ func setMode(w http.ResponseWriter, r *http.Request) {
 		}
 		go audio.StartService("jellyfin-mpv-shim", args, channel)
 		success = audio.WaitForChannel(&channel, 5)
+		go audio.Beep()
 	case utils.DoesStationExist(instruction):
+		go audio.Beep()
 		args := append(make([]string, 0), utils.GetStationById(instruction).Url, fmt.Sprintf("--volume=%d", utils.GetStationById(instruction).Volume), "--no-video")
 		audio.SetMode(instruction)
 		// If nothing plays, then don't attempt to kill something

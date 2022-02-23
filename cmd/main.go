@@ -26,7 +26,10 @@ func main() {
 	log.Debug("Loggers initialized.")
 
 	// Deactivate everything
-	go audio.StopAll(5)
+	go func() {
+		audio.StopAll(5)
+		audio.StartupTone()
+	}()
 
 	// Setup Scheduler to run every 6 hours
 	scheduler := gocron.NewScheduler(time.Local)
@@ -35,7 +38,7 @@ func main() {
 	scheduler.StartAsync()
 
 	config := utils.GetConfig()
-	config.Version = "1.3.0"
+	config.Version = "1.3.1"
 	r := routes.NewRouter()
 	utils.ReadModesFile()
 	utils.ReadConfigFile()
