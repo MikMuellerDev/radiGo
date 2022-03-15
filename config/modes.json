@@ -25,6 +25,14 @@
             "volume": 100
         },
         {
+            "name": "Url",
+            "id": "url",
+            "description": "A custom url, config file must have urlEnabled set to true.",
+            "imagePath": "/static/media/icons/https.png",
+            "url": "",
+            "volume": 100
+        },
+        {
             "name": "Off",
             "id": "off",
             "description": "Kills all MPV streams and deactivates the Jellyfin stream client.",

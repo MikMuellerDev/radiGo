@@ -7,6 +7,20 @@ async function setCurrentMode(id: string) {
   }
 }
 
+async function setCurrenturl(url: string) {
+  try {
+    const res = await fetch(`/api/url`, {
+      method: "post",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({url: url})
+    });
+    return await res.json();
+  } catch {
+    return { Success: false, ErrorCode: -1, Title: "", Message: "" };
+  }
+}
+
+
 async function getAvailableModes() {
   const url = "/api/mode/list";
   const res = await fetch(url);

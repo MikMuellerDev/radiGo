@@ -8,6 +8,7 @@ import (
 
 type Config struct {
 	InstanceName string
+	UrlsEnabled  bool
 	Production   bool
 	Version      string
 	Users        []User
@@ -32,6 +33,9 @@ func ReadConfigFile() {
 		log.Fatal("Could not parse config file: ", err)
 	}
 	log.Debug(fmt.Sprintf("Loaded radiGo config File from %s", path))
+	if config.UrlsEnabled {
+		log.Info("Custom urls are enabled")
+	}
 }
 
 func GetConfig() *Config {

@@ -23,6 +23,8 @@ func NewRouter() *mux.Router {
 	r.HandleFunc("/", middleware.LogRequest(indexGetHandler)).Methods("GET")
 	r.HandleFunc("/dash", middleware.AuthRequired(dashGetHandler)).Methods("GET")
 
+	// This feature can be disabled due to security concerns that come with submitting custom urls
+	r.HandleFunc("/api/url", middleware.LogRequest(middleware.AuthRequired(setUrl))).Methods("POST")
 	r.HandleFunc("/api/mode/{instruction}", middleware.LogRequest(middleware.AuthRequired(setMode))).Methods("POST")
 	r.HandleFunc("/api/mode/list", middleware.LogRequest(getAllModes)).Methods("GET")
 	r.HandleFunc("/api/mode", middleware.LogRequest(getMode)).Methods("GET")

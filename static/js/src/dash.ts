@@ -48,6 +48,7 @@ async function addStations(modes: any) {
     }, 50);
 
     nodeItem.addEventListener("click", async function () {
+      let response
       if (operationLock) return;
       modeBefore = currentMode;
       operationLock = true;
@@ -57,7 +58,14 @@ async function addStations(modes: any) {
       startSpinner(`${mode.Id}-spinner`);
       applyActiveCss(nodeItem, nodeItemLeftPicture);
 
-      const response = await setCurrentMode(mode.Id);
+
+      if (mode.Id == "url") {
+      const url = prompt("Enter the URL to be played") as string
+       response = await setCurrenturl(url);
+      } else {
+        response = await setCurrentMode(mode.Id);
+      }
+
       await stopSpinner(`${mode.Id}-spinner`);
       console.log(response);
       if (response.Success) {

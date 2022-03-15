@@ -1,5 +1,6 @@
 {
     "production": true,
+    "urlsEnabled": true,
     "port": 8081,
     "instanceName": "LOCALHOST",
     "users": [
