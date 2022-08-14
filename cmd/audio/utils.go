@@ -42,7 +42,7 @@ func killProcess(process string, channel chan bool) {
 }
 
 func Reload() {
-	if GetMode() != "off" {
+	if GetMode() != "off" && GetMode() != "url" {
 		log.Debug("Reloading current mode...")
 		previousMode := playingNow
 		for GetOperationLock() {

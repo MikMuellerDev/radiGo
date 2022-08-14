@@ -31,9 +31,11 @@ func main() {
 		audio.StartupTone()
 	}()
 
-	// Setup Scheduler to run every 6 hours
+	// Setup scheduler to run every 6 hours
 	scheduler := gocron.NewScheduler(time.Local)
-	scheduler.Every(6).Hours().Do(audio.Reload)
+	if _, err := scheduler.Every(6).Hours().Do(audio.Reload); err != nil {
+		log.Fatal("Could not start audio reload scheduler: ", err.Error())
+	}
 	// scheduler.Every(1).Minutes().Do(audio.Reload)
 	scheduler.StartAsync()
 
