@@ -40,7 +40,7 @@ func main() {
 	scheduler.StartAsync()
 
 	config := utils.GetConfig()
-	config.Version = "1.4.0"
+	config.Version = "1.4.1"
 	r := routes.NewRouter()
 	utils.ReadModesFile()
 	utils.ReadConfigFile()

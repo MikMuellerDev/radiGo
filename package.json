@@ -1,8 +1,8 @@
 {
   "name": "radigo",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Headless internet radio for linux",
-  "main": "nan",
+  "main": "",
   "scripts": {
     "build": "tsc -b && minify-all-js static/js/out"
   },
