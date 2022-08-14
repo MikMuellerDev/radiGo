@@ -16,8 +16,7 @@ run: web
 
 
 web:
-	tsc -b
-	minify-all-js static/js/out
+	npm run build
 
 build: web all linux clean
 

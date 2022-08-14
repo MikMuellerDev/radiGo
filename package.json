@@ -4,9 +4,7 @@
   "description": "Headless internet radio for linux",
   "main": "nan",
   "scripts": {
-    "build": "make build",
-    "compile": "make",
-    "clean": "make cleanall"
+    "build": "tsc -b && minify-all-js static/js/out"
   },
   "repository": {
     "type": "git",
@@ -23,5 +21,8 @@
   "homepage": "https://github.com/MikMuellerDev/radiGo#readme",
   "devDependencies": {
     "minify-all-js": "^0.1.9"
+  },
+  "dependencies": {
+    "typescript": "^4.7.4"
   }
 }
