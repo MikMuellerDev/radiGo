@@ -1,5 +1,7 @@
 # RadiGo
 
+### Warning: This project uses messy code and will be rewritten soon
+
 ![go report card](https://goreportcard.com/badge/github.com/MikMuellerDev/radiGo)  
 Headless internet radio for linux
 
