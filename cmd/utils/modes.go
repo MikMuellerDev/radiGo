@@ -13,6 +13,7 @@ type Mode struct {
 	Url         string
 	Id          string
 	Volume      int
+	AutoStart   bool
 }
 
 type Modes struct {
@@ -31,6 +32,14 @@ func ReadModesFile() {
 	if err != nil {
 		log.Fatal("Could not parse modes file: ", err)
 	}
+
+	var autoStartMode *string = nil
+	for _, mode := range stations.Modes {
+		if autoStartMode != nil && mode.AutoStart {
+			log.Fatal(fmt.Sprintf("Cannot set station `%s` as auto start: station `%s` is already marked as auto start", mode.Id, *autoStartMode))
+		}
+	}
+
 	log.Debug(fmt.Sprintf("Loaded radiGo modes and stations from %s", path))
 }
 

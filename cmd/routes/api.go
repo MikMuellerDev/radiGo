@@ -117,7 +117,6 @@ func setMode(w http.ResponseWriter, r *http.Request) {
 		// If nothing plays, then don't attempt to kill something
 		if audio.GetMode() != "off" {
 			audio.StopAll(3)
-			success = true
 		}
 		go audio.StartService("jellyfin-mpv-shim", args, channel)
 		success = audio.WaitForChannel(&channel, 5)
